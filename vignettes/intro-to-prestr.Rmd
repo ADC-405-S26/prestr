@@ -1,0 +1,69 @@
+---
+title: "Introduction to Prestr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Prestr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(project)
+```
+
+## What is prestr?
+
+`prestr` helps you turn data into PowerPoint presentations directly from R.
+It provides three functions: summarize data, generate charts, and export
+to `.pptx` — all in a few lines of code.
+
+---
+
+## The Data
+
+```{r}
+data(sales_data)
+head(sales_data)
+```
+
+---
+
+## Summarize
+
+```{r}
+summarize_insights(sales_data)
+```
+
+---
+
+## Visualize
+
+```{r, fig.width=6, fig.height=4}
+category_totals <- aggregate(sales ~ category, data = sales_data, FUN = sum)
+
+auto_chart(category_totals, x = "category", y = "sales",
+           chart_type = "bar", title = "Total Sales by Category")
+```
+
+---
+
+## Export to PowerPoint
+
+```{r, eval=FALSE}
+create_ppt_report(
+  data        = category_totals,
+  title       = "Sales Report",
+  subtitle    = "By Category",
+  output_file = "sales_report.pptx"
+)
+```
+
+The `.pptx` file is saved to your working directory, ready to open in
+PowerPoint or Google Slides.
