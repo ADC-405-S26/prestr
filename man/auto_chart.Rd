@@ -7,35 +7,44 @@
 auto_chart(data, x, y, chart_type = "bar", title = NULL)
 }
 \arguments{
-\item{data}{A data frame containing the variables to plot. Must have at
-least one row and one column.}
+\item{data}{A data frame with at least one row and one column.}
 
-\item{x}{A single character string naming the column to use for the x-axis.}
+\item{x}{A single character string naming the x-axis column. Can be
+any type. Must exist in \code{data}.}
 
-\item{y}{A single character string naming the column to use for the y-axis.
-Must be numeric.}
+\item{y}{A single character string naming the y-axis column. Must exist
+in \code{data} and must be numeric.}
 
-\item{chart_type}{A single character string specifying the chart type.
-One of \code{"bar"}, \code{"line"}, or \code{"scatter"}.
-Defaults to \code{"bar"}.}
+\item{chart_type}{One of \code{"bar"}, \code{"line"}, or
+\code{"scatter"}. Defaults to \code{"bar"}.}
 
-\item{title}{An optional single character string for the chart title.
+\item{title}{An optional character string for the chart title.
 Defaults to \code{NULL}.}
 }
 \value{
-A \code{ggplot} object.
+A \code{ggplot} object styled with \code{theme_minimal()}.
+Can be printed, further modified, or saved with \code{ggsave()}.
 }
 \description{
-Creates a ggplot2 chart from a data frame with sensible defaults.
-Supports bar, line, and scatter chart types. The returned ggplot object
-can be further customized or passed into \code{create_ppt_report()}.
+Creates a styled \code{ggplot2} chart from a data frame. Supports bar,
+line, and scatter chart types. The returned object can be further
+customized with standard \code{ggplot2} functions or passed into
+\code{create_ppt_report()}.
 }
 \examples{
-df <- data.frame(
-  Category = c("A", "B", "C"),
-  Value    = c(10, 25, 15)
-)
-auto_chart(df, x = "Category", y = "Value", chart_type = "bar")
-auto_chart(df, x = "Category", y = "Value", chart_type = "line", title = "Trend")
+df <- data.frame(Category = c("A", "B", "C"), Value = c(10, 25, 15))
 
+# Bar chart (default)
+auto_chart(df, x = "Category", y = "Value")
+
+# Line chart with title
+auto_chart(df, x = "Category", y = "Value",
+           chart_type = "line", title = "Trend")
+
+# Scatter plot
+auto_chart(df, x = "Category", y = "Value", chart_type = "scatter")
+
+}
+\seealso{
+\code{\link{create_ppt_report}}, \code{\link{summarize_insights}}
 }

@@ -1,9 +1,12 @@
-Package: project
-Title: What the Package Does (One Line, Title Case)
+Package: prestr
+Title: Generate PowerPoint Presentations from Data
 Version: 0.0.0.9000
 Authors@R: 
     person("Ujjwal", "Acharya", , "acharyau@lawrence.edu", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Provides tools to turn data frames into presentation-ready
+    PowerPoint slides, auto-generated charts, and summary statistics.
+    Functions wrap the officer, flextable, and ggplot2 packages with
+    input validation and sensible defaults.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -24,3 +27,4 @@ Depends:
     R (>= 3.5)
 LazyData: true
 VignetteBuilder: knitr
+URL: https://adc-405-s26.github.io/prestr/

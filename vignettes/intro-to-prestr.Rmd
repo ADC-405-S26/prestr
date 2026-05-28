@@ -1,28 +1,25 @@
 ---
-title: "Introduction to Prestr"
+title: "Introduction to prestr"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction to Prestr}
+  %\VignetteIndexEntry{Introduction to prestr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>"
-)
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 ```
 
 ```{r setup}
-library(project)
+library(prestr)
 ```
 
 ## What is prestr?
 
 `prestr` helps you turn data into PowerPoint presentations directly from R.
 It provides three functions: summarize data, generate charts, and export
-to `.pptx` — all in a few lines of code.
+to `.pptx`, all in a few lines of code.
 
 ---
 

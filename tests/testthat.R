@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(project)
+library(prestr)
 
-test_check("project")
+test_check("prestr")

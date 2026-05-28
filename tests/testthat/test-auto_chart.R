@@ -27,3 +27,24 @@ test_that("auto_chart() errors when y column is not numeric", {
     regexp = "numeric"
   )
 })
+
+# Test 4: Bar chart uses geom_col
+test_that("auto_chart() produces a bar chart with geom_col", {
+  p <- auto_chart(sample_df, x = "Category", y = "Value", chart_type = "bar")
+  geom_types <- sapply(p$layers, function(l) class(l$geom)[1])
+  expect_true("GeomCol" %in% geom_types)
+})
+
+# Test 5: Line chart uses geom_line
+test_that("auto_chart() produces a line chart with geom_line", {
+  p <- auto_chart(sample_df, x = "Category", y = "Value", chart_type = "line")
+  geom_types <- sapply(p$layers, function(l) class(l$geom)[1])
+  expect_true("GeomLine" %in% geom_types)
+})
+
+# Test 6: Scatter chart uses geom_point
+test_that("auto_chart() produces a scatter chart with geom_point", {
+  p <- auto_chart(sample_df, x = "Category", y = "Value", chart_type = "scatter")
+  geom_types <- sapply(p$layers, function(l) class(l$geom)[1])
+  expect_true("GeomPoint" %in% geom_types)
+})

@@ -1,34 +1,41 @@
 #' Auto-Generate a Chart from a Data Frame
 #'
-#' Creates a ggplot2 chart from a data frame with sensible defaults.
-#' Supports bar, line, and scatter chart types. The returned ggplot object
-#' can be further customized or passed into \code{create_ppt_report()}.
+#' Creates a styled \code{ggplot2} chart from a data frame. Supports bar,
+#' line, and scatter chart types. The returned object can be further
+#' customized with standard \code{ggplot2} functions or passed into
+#' \code{create_ppt_report()}.
 #'
-#' @param data A data frame containing the variables to plot. Must have at
-#'   least one row and one column.
-#' @param x A single character string naming the column to use for the x-axis.
-#' @param y A single character string naming the column to use for the y-axis.
-#'   Must be numeric.
-#' @param chart_type A single character string specifying the chart type.
-#'   One of \code{"bar"}, \code{"line"}, or \code{"scatter"}.
-#'   Defaults to \code{"bar"}.
-#' @param title An optional single character string for the chart title.
+#' @param data A data frame with at least one row and one column.
+#' @param x A single character string naming the x-axis column. Can be
+#'   any type. Must exist in \code{data}.
+#' @param y A single character string naming the y-axis column. Must exist
+#'   in \code{data} and must be numeric.
+#' @param chart_type One of \code{"bar"}, \code{"line"}, or
+#'   \code{"scatter"}. Defaults to \code{"bar"}.
+#' @param title An optional character string for the chart title.
 #'   Defaults to \code{NULL}.
 #'
-#' @return A \code{ggplot} object.
+#' @return A \code{ggplot} object styled with \code{theme_minimal()}.
+#'   Can be printed, further modified, or saved with \code{ggsave()}.
 #'
 #' @examples
-#' df <- data.frame(
-#'   Category = c("A", "B", "C"),
-#'   Value    = c(10, 25, 15)
-#' )
-#' auto_chart(df, x = "Category", y = "Value", chart_type = "bar")
-#' auto_chart(df, x = "Category", y = "Value", chart_type = "line", title = "Trend")
+#' df <- data.frame(Category = c("A", "B", "C"), Value = c(10, 25, 15))
+#'
+#' # Bar chart (default)
+#' auto_chart(df, x = "Category", y = "Value")
+#'
+#' # Line chart with title
+#' auto_chart(df, x = "Category", y = "Value",
+#'            chart_type = "line", title = "Trend")
+#'
+#' # Scatter plot
+#' auto_chart(df, x = "Category", y = "Value", chart_type = "scatter")
+#'
+#' @seealso \code{\link{create_ppt_report}}, \code{\link{summarize_insights}}
 #'
 #' @importFrom ggplot2 ggplot aes geom_col geom_line geom_point labs theme_minimal
-#' @importFrom checkmate assert_data_frame assert_string assert_choice assert_numeric
+#' @importFrom checkmate assert_data_frame assert_string assert_choice
 #' @importFrom rlang .data
-
 #' @export
 auto_chart <- function(data,
                        x,
