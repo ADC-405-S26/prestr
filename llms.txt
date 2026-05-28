@@ -81,7 +81,7 @@ summarize_insights(sales_data)
 
 ## Dataset
 
-`prestr` includes a built-in dataset `sales_data` — monthly sales
+`prestr` includes a built-in dataset `sales_data` monthly sales
 performance across four product categories (Electronics, Clothing, Food,
 Furniture) over one year. Use it to explore and test all three functions
 right away.
@@ -129,13 +129,13 @@ head(sales_data)
 
 ## Dependencies
 
-- [`officer`](https://davidgohel.github.io/officer/) — PowerPoint file
+- [`officer`](https://davidgohel.github.io/officer/) :PowerPoint file
   generation
-- [`flextable`](https://ardata-fr.github.io/flextable-book/) — Table
+- [`flextable`](https://ardata-fr.github.io/flextable-book/) : Table
   formatting
-- [`ggplot2`](https://ggplot2.tidyverse.org/) — Chart generation
-- [`checkmate`](https://mllg.github.io/checkmate/) — Input validation
-- [`rlang`](https://rlang.r-lib.org/) — Tidy evaluation support
+- [`ggplot2`](https://ggplot2.tidyverse.org/) : Chart generation
+- [`checkmate`](https://mllg.github.io/checkmate/) : Input validation
+- [`rlang`](https://rlang.r-lib.org/) : Tidy evaluation support
 
 ------------------------------------------------------------------------
 
