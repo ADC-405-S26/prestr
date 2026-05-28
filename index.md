@@ -21,6 +21,7 @@ The package provides three core functions:
 You can install `prestr` directly from GitHub:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("ADC-405-S26/prestr")
 ```
@@ -32,6 +33,7 @@ devtools::install_github("ADC-405-S26/prestr")
 ### Create a PowerPoint Report
 
 ``` r
+
 library(prestr)
 
 data(sales_data)
@@ -47,6 +49,7 @@ create_ppt_report(
 ### Auto-Generate a Chart
 
 ``` r
+
 library(prestr)
 
 data(sales_data)
@@ -66,6 +69,7 @@ auto_chart(
 ### Summarize Insights
 
 ``` r
+
 library(prestr)
 
 data(sales_data)
@@ -87,6 +91,7 @@ Furniture) over one year. Use it to explore and test all three functions
 right away.
 
 ``` r
+
 data(sales_data)
 head(sales_data)
 ```

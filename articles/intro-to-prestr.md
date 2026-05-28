@@ -1,6 +1,7 @@
 # Introduction to prestr
 
 ``` r
+
 library(prestr)
 ```
 
@@ -15,6 +16,7 @@ export to `.pptx`, all in a few lines of code.
 ## The Data
 
 ``` r
+
 data(sales_data)
 head(sales_data)
 #>      month    category sales profit units_sold
@@ -31,6 +33,7 @@ head(sales_data)
 ## Summarize
 
 ``` r
+
 summarize_insights(sales_data)
 #>       column  min   max     mean median
 #> 1      sales 2900 28900 10395.83   8150
@@ -43,6 +46,7 @@ summarize_insights(sales_data)
 ## Visualize
 
 ``` r
+
 category_totals <- aggregate(sales ~ category, data = sales_data, FUN = sum)
 
 auto_chart(category_totals, x = "category", y = "sales",
@@ -56,6 +60,7 @@ auto_chart(category_totals, x = "category", y = "sales",
 ## Export to PowerPoint
 
 ``` r
+
 create_ppt_report(
   data        = category_totals,
   title       = "Sales Report",
