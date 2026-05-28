@@ -8,7 +8,7 @@ library(prestr)
 
 `prestr` helps you turn data into PowerPoint presentations directly from
 R. It provides three functions: summarize data, generate charts, and
-export to `.pptx` — all in a few lines of code.
+export to `.pptx`, all in a few lines of code.
 
 ------------------------------------------------------------------------
 
